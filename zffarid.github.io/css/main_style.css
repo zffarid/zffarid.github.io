@@ -6,12 +6,45 @@ Colorblind safe color palette from colorbrewer2.org
 #a6dba0 light green
 #008837 dark green
 */
-  body {
+#header {
   background-color: #c2a5cf;
-  color: #7b3294;
-  text-align: center;
 }
 
 h1 {
   color: #f7f7f7;
+  padding: 5px;
+  margin: 0;
+}
+
+#body-container {
+  background-color:  #c2a5cf
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;
+  border: 2px solid #f7f7f7;
+  border-radius: 25px
+  overflow: hidden;
+}
+
+  body {
+  background-color: #c2a5cf;
+  color: #7b3294;
+  text-align: center;
+  margin: 0;
+}
+
+#profile-picture {
+  float: left;
+}
+
+#welcome-text {
+  padding-top: 25px;
+  font-size: 25px;
+}
+
+#research-interests {
+  text-align: left;
+  font-size: 25px
+  position: relative;
+  left: 50px;
 }
