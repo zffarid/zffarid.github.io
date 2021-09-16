@@ -7,44 +7,71 @@ Colorblind safe color palette from colorbrewer2.org
 #008837 dark green
 */
 #header {
+  /*
+  This specified the background color to become light purple
+  */
   background-color: #c2a5cf;
 }
 
 h1 {
+  /* This set the color of the text to be white */
   color: #f7f7f7;
+  /* This is a shorthand for padding properties and set it at 5 pixels */
   padding: 5px;
+  /* This set the margin properties to 0 so we have a consistent box model*/
   margin: 0;
 }
 
 #body-container {
+  /* This specified the background color to be green for the body container*/
   background-color: #a6dba0;
+  /* This set that the width of the body does not exceed 1000px */
   max-width: 1000px;
+  /* This set all margin properties to be automatic so it automatically
+  horizantlly centers the element within the container */
   margin: auto;
+  /* This set the height to be 100 */
   height: 100vh;
+  /* This sets the border-width to be 2px, border-style to be solid, and border color to be white */
   border: 2px solid #f7f7f7;
+  /*This rounds the corners of an element's outer border edge */
   border-radius: 25px
+  /* This specifies that the content remains hidden if it is overflowing in an element's box */
   overflow: hidden;
 }
 
   body {
+    /* This specified the background color to be light purple for the body */
   background-color: #c2a5cf;
+  /* This defines the text color as purple */
   color: #7b3294;
+  /* This specifies the horizontal alignment of the text to be in the center */
   text-align: center;
+  /* This sets all margin properties to be 0 for consistency */
   margin: 0;
 }
 
 #profile-picture {
+  /*This decides that the profile picture should float to the left, meaning that the text
+  and inline elements wrap around it in that way */
   float: left;
 }
 
 #Welcome-text {
+  /* This sets the top padding of our text at 25px */
   padding-top: 25px;
+  /* This declares that our welcome text will have a font size of 25px */
   font-size: 25px;
 }
 
 #research-interests {
+  /* This sets the horizontal alignment of the text towards the left */
   text-align: left;
+  /* This declares the font size of the outlining of research interests to be at 25px */
   font-size: 25px;
+  /* This defines that this text will always have a position according to the defined values of its position
+  and its movement is in line with scrolling of the page */
   position: relative;
+  /* This specifies the left position of our positioned research interests */
   left: 50px;
 }
