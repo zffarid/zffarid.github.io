@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zainab's Map</title>
+
+    <style type="text/css">
+
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+  </style>
+
+    <select name= "dropdown">
+      <option value="Value 1" selected="selected">Polygon</option>
+      <option value="Value 2">Polyline</option>
+
+    </select>
+    </head>
+      <body>
+        <div id="map"></div>
+
+
+
+    <script>
+
+    <div id="map"></div>
+    function initMap() {
+
+      const uluru = { lat: -25.344, lng: 131.036 };
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 2,
+        center: uluru,
+        gestureHandling: "cooperative",
+      });
+      const polygon = polygon([
+      [51.509, -0.08],
+      [51.503, -0.06],
+      [51.51, -0.047]], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500});
+
+      const uluru_2 = { lat: 51.5, lng: -0.09 };
+      const marker = new google.maps.Marker({
+        position: uluru_2,
+        map: map,
+      });
+
+      const circle = circle([51.508, -0.11], {
+          color: 'red',
+          fillColor: '#f03',
+          fillOpacity: 0.5,
+          radius: 500
+      });
+    }
+
+    </script>
+
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDd6V4gTktRDbtcNQ7KkD1BlMcDPgYMS74&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+  </html>
