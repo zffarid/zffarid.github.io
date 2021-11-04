@@ -1,0 +1,133 @@
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.21</title>
+
+
+
+    <style>
+
+      html,
+
+      body,
+
+      #viewDiv {
+
+        padding: 0;
+
+        margin: 0;
+
+        height: 100%;
+
+        width: 100%;
+
+      }
+
+    </style>
+
+
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+
+
+
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+
+
+    <script>
+
+      require(["esri/views/MapView", "esri/WebMap"], (MapView, WebMap) => {
+
+
+        const webmap = new WebMap({
+          portalItem: {
+
+            // autocasts as new PortalItem()
+
+            //id:"e691172598f04ea8881cd2a4adaa45ba"        //This webmap is available without log-in
+
+            //id: "ef9c7fbda731474d98647bebb4b33c20"        // This webmap requires log-in
+
+            //id: "8e42e164d4174da09f61fe0d3f206641"
+
+           // id: "d582a9e953c44c09bb998c7d9b66f8d4"
+
+           id: "fa96bca2d5be474b81d9450a06cc892b"
+
+
+
+          }
+
+
+        });
+
+
+
+        const view = new MapView({
+
+          map: webmap,
+
+          container: "viewDiv"
+
+
+
+
+        });
+
+        view.center = [37.0902, 95.7129];
+        view.zoom = 2;
+        view.scale = 12000;
+
+        const us_counties = new FeatureLayer({
+          url: "https://services1.arcgis.com/M68M8H7oABBFs1Pf/arcgis/rest/services/US_Counties/FeatureServer/0"
+          });
+          map.add(us_counties);
+
+          // Define a pop-up for Trailheads
+          const popupTrailheads = {
+            "title": "Trailhead",
+            "content": "<b>Trail:</b> {TRL_NAME}<br><b>City:</b> {CITY_JUR}<br><b>Cross Street:</b>
+            {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
+          }
+// The layer comes from arcgis servers:
+          const trailheads = new FeatureLayer({
+            url:
+            "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads_Styled/FeatureSe
+            rver/0",
+            outFields: ["TRL_NAME","CITY_JUR","X_STREET","PARKING","ELEV_FT"],
+            popupTemplate: popupTrailheads
+          });
+//add the trail
+          map.add(trailheads);
+
+          const layer = new FeatureLayer({
+            url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/HUD_Regions/FeatureServer/0"
+          });
+          map.add(layer);
+
+      });
+
+
+
+
+
+    </script>
+
+  </head>
+
+
+
+  <body>
+
+    <div id="viewDiv"></div>
+
+  </body>
+
+</html>
