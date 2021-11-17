@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Intro to SceneLayer | Sample | ArcGIS API for JavaScript 4.21</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+      require(["esri/WebScene", "esri/views/SceneView", "esri/layers/AreaMeasurementLayer", "esri/widgets/ShadowCast", "esri/widgets/NavigationToggle"], (WebScene, SceneView, AreaMeasurementLayer, ShadowCast, NavigationToggle) => {
+
+
+        // Create the SceneView
+        const view = new SceneView({
+          container: "viewDiv",
+
+        //Create WebScene
+          map: new WebScene({
+            portalItem: {
+              id: "6c7a0d4f03d2444fb1f4fa9e85a96044"
+            }
+          }),
+            qualityProfile: "high",
+            environment: {
+              lighting: {
+                directShadowsEnabled: false
+              }
+            }
+        });
+
+
+        // add Shadow Widget
+        //The shadow widget displays the amount of shadow that 3D objects cast in a scene over a selected amount of time.
+        //It was challenging to find webscenes compatible for this feature, because it is only applicable to 3D maps
+
+        const shadowWdidget = new ShadowCast({ view: view });
+
+        view.ui.add(shadowWdidget, "top-left");
+        widget.viewModel.date = new Date("May 1, 2021");
+
+
+
+      });
+
+
+
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
