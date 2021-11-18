@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Intro to SceneLayer | Sample | ArcGIS API for JavaScript 4.21</title>
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.21/"></script>
+
+    <script>
+      require(["esri/WebScene", "esri/views/SceneView", "esri/layers/AreaMeasurementLayer", "esri/widgets/ShadowCast", "esri/widgets/NavigationToggle"], (WebScene, SceneView, AreaMeasurementLayer, ShadowCast, NavigationToggle) => {
+
+
+        // Create the SceneView
+        const view = new SceneView({
+          container: "viewDiv",
+
+        //Create WebScene
+          map: new WebScene({
+            portalItem: {
+              id: "e22ec44bac1d40ab87ecddb8754eff18"
+            }
+          }),
+            qualityProfile: "high",
+            environment: {
+              lighting: {
+                directShadowsEnabled: false
+              }
+            }
+        });
+
+        //The navigationToggle was quite easy to add -- however, I'm not sure how to remove the automatically appearing navigation toggle //
+
+        
+
+
+        let navigationToggle = new NavigationToggle({
+          view: view
+        });
+
+        view.ui.add(navigationToggle, "top-right");
+
+      });
+
+
+
+      </script>
+    </head>
+
+    <body>
+      <div id="viewDiv"></div>
+
+    </body>
+  </html>
